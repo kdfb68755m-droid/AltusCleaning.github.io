@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Altus Cleaning - Professional Affordable Cleaning Services</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --blue: #2563eb;
+      --blue-dark: #1d4ed8;
+      --teal: #0d9488;
+      --light: #f0f9ff;
+      --gray: #64748b;
+      --dark: #1e293b;
+    }
+    body { font-family: 'Segoe UI', sans-serif; color: var(--dark); }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: #fff; box-shadow: 0 1px 8px rgba(0,0,0,.1);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--blue); }
+    .logo span { color: var(--teal); }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav a { text-decoration: none; color: var(--dark); font-weight: 500; transition: color .2s; }
+    nav a:hover { color: var(--blue); }
+    .nav-cta {
+      background: var(--blue); color: #fff !important;
+      padding: .5rem 1.2rem; border-radius: 6px;
+    }
+    .nav-cta:hover { background: var(--blue-dark); color: #fff !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #dbeafe 0%, #ccfbf1 100%);
+      padding: 5rem 2rem; text-align: center;
+    }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.2; margin-bottom: 1rem; }
+    .hero h1 span { color: var(--blue); }
+    .hero p { font-size: 1.2rem; color: var(--gray); max-width: 600px; margin: 0 auto 2rem; }
+    .btn {
+      display: inline-block; padding: .85rem 2rem; border-radius: 8px;
+      font-size: 1rem; font-weight: 600; text-decoration: none; transition: all .2s; cursor: pointer; border: none;
+    }
+    .btn-primary { background: var(--blue); color: #fff; }
+    .btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: var(--blue); border: 2px solid var(--blue); margin-left: 1rem; }
+    .btn-outline:hover { background: var(--blue); color: #fff; }
+    .hero-badges { margin-top: 2rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+    .badge { display: flex; align-items: center; gap: .4rem; color: var(--gray); font-size: .95rem; }
+    .badge::before { content: '✓'; color: var(--teal); font-weight: 700; }
+
+    /* SERVICES */
+    .section { padding: 5rem 2rem; }
+    .section-title { text-align: center; margin-bottom: 3rem; }
+    .section-title h2 { font-size: 2rem; margin-bottom: .5rem; }
+    .section-title p { color: var(--gray); }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+    .card {
+      background: #fff; border-radius: 12px; padding: 2rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07); transition: transform .2s, box-shadow .2s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+    .card-img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem; }
+    .card h3 { font-size: 1.15rem; margin-bottom: .5rem; }
+    .card p { color: var(--gray); line-height: 1.6; font-size: .95rem; }
+    .card .price { margin-top: 1rem; font-weight: 700; color: var(--blue); font-size: 1.1rem; }
+
+    /* REFERRAL */
+    .referral { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+    .referral-box { max-width: 700px; margin: 0 auto; text-align: center; }
+    .referral-box .badge-big { display: inline-block; background: #f59e0b; color: #fff; font-size: 2.5rem; font-weight: 800; padding: .5rem 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; }
+    .referral-box h2 { font-size: 2rem; margin-bottom: 1rem; }
+    .referral-box p { color: var(--gray); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem; }
+    .referral-steps { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .referral-step { text-align: center; }
+    .referral-step .num { width: 40px; height: 40px; background: var(--blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; margin: 0 auto .5rem; }
+    .referral-step p { font-size: .9rem; max-width: 130px; }
+
+    /* WHY US */
+    .why { background: var(--light); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; }
+    .why-item { text-align: center; }
+    .why-item .icon { font-size: 2.5rem; margin-bottom: .75rem; }
+    .why-item h3 { margin-bottom: .4rem; }
+    .why-item p { color: var(--gray); font-size: .9rem; }
+
+    /* TESTIMONIALS */
+    .testimonials { background: #fff; }
+    .reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+    .review {
+      background: var(--light); border-radius: 12px; padding: 1.5rem;
+      border-left: 4px solid var(--teal);
+    }
+    .stars { color: #f59e0b; margin-bottom: .5rem; font-size: 1.1rem; }
+    .review p { color: var(--gray); font-style: italic; line-height: 1.6; margin-bottom: 1rem; }
+    .reviewer { font-weight: 600; }
+
+    /* BOOKING FORM */
+    .booking { background: linear-gradient(135deg, #1e40af, #0d9488); color: #fff; }
+    .booking .section-title h2 { color: #fff; }
+    .booking .section-title p { color: rgba(255,255,255,.8); }
+    .form-wrap { max-width: 680px; margin: 0 auto; background: rgba(255,255,255,.1); padding: 2.5rem; border-radius: 16px; backdrop-filter: blur(4px); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: .4rem; }
+    .form-group label { font-size: .9rem; color: rgba(255,255,255,.9); }
+    .form-group input, .form-group select, .form-group textarea {
+      padding: .75rem 1rem; border-radius: 8px; border: none;
+      font-size: 1rem; outline: none; width: 100%;
+    }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-full { grid-column: 1 / -1; }
+    .form-wrap .btn-primary { width: 100%; font-size: 1.05rem; padding: 1rem; margin-top: .5rem; }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark); color: rgba(255,255,255,.7);
+      padding: 3rem 2rem; text-align: center;
+    }
+    footer .logo { color: #fff; display: block; margin-bottom: .5rem; }
+    footer p { font-size: .9rem; margin: .3rem 0; }
+    footer a { color: rgba(255,255,255,.7); text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    /* THANK YOU */
+    #thank-you { display: none; text-align: center; padding: 2rem 0; }
+    #thank-you h3 { font-size: 1.5rem; color: #fff; margin-bottom: .5rem; }
+    #thank-you p { color: rgba(255,255,255,.85); }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      nav ul { display: none; }
+      .hamburger { display: flex; }
+      nav ul.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: #fff; padding: 1.5rem 2rem; box-shadow: 0 4px 12px rgba(0,0,0,.1); gap: 1rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .btn-outline { margin-left: 0; margin-top: .75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Altus<span>Cleaning</span></div>
+  <ul id="nav-menu">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why-us">Why Us</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#booking" class="nav-cta">Book Now</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Your Home, <span>Spotlessly Clean</span><br>Every Single Time</h1>
+  <p>Professional, reliable, and affordable cleaning services. Trusted by hundreds of happy customers in your area.</p>
+  <a href="#booking" class="btn btn-primary">Get a Free Quote</a>
+  <a href="#services" class="btn btn-outline">Our Services</a>
+  <div class="hero-badges">
+    <div class="badge">Background Checked</div>
+    <div class="badge">Affordable Rates</div>
+    <div class="badge">Flexible Scheduling</div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-title">
+    <h2>Our Cleaning Services</h2>
+    <p>Choose the service that fits your needs and schedule</p>
+  </div>
+  <div class="grid-3">
+    <div class="card">
+      <img class="card-img" src="https://images.pexels.com/photos/6196566/pexels-photo-6196566.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Standard Clean" />
+      <h3>Standard Clean</h3>
+      <p>Regular maintenance cleaning to keep your home fresh and tidy. Perfect for weekly or bi-weekly visits.</p>
+      <div class="price">Starting at $80</div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.pexels.com/photos/4021256/pexels-photo-4021256.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Deep Clean" />
+      <h3>Deep Clean</h3>
+      <p>A thorough top-to-bottom clean covering every corner, appliance, and surface. Great for first-time or seasonal cleans.</p>
+      <div class="price">Starting at $150</div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.pexels.com/photos/7031599/pexels-photo-7031599.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Move In / Move Out" />
+      <h3>Move In / Move Out</h3>
+      <p>Get your deposit back or move into a spotless space. We clean everything from baseboards to inside cabinets.</p>
+      <div class="price">Starting at $180</div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.pexels.com/photos/10099318/pexels-photo-10099318.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Kitchen Detail" />
+      <h3>Kitchen Detail</h3>
+      <p>Deep degrease appliances, scrub countertops, clean inside oven and fridge, sanitize sinks and fixtures.</p>
+      <div class="price">Starting at $60</div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.pexels.com/photos/1454804/pexels-photo-1454804.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Bathroom Refresh" />
+      <h3>Bathroom Refresh</h3>
+      <p>Scrub tiles, descale fixtures, clean toilets, mirrors, floors, and all surfaces until they shine.</p>
+      <div class="price">Starting at $50</div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.pexels.com/photos/9462734/pexels-photo-9462734.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Window Cleaning" />
+      <h3>Window Cleaning</h3>
+      <p>Interior and exterior window cleaning for a streak-free, crystal clear view in every room.</p>
+      <div class="price">Starting at $70</div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.pexels.com/photos/1170412/pexels-photo-1170412.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Office Spaces" />
+      <h3>Office Spaces</h3>
+      <p>Keep your workplace clean, professional, and productive. Desks, floors, restrooms, kitchens, and common areas covered.</p>
+      <div class="price">Starting at $120</div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.pexels.com/photos/10981670/pexels-photo-10981670.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Post Construction Cleaning" />
+      <h3>Post Construction</h3>
+      <p>Remove dust, debris, and residue left after renovations or new builds. We leave the space move-in ready.</p>
+      <div class="price">Starting at $200</div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.pexels.com/photos/5461582/pexels-photo-5461582.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Airbnb Turnover" />
+      <h3>Airbnb Turnovers</h3>
+      <p>Fast, reliable turnovers between guests — fresh linens, restocked supplies, spotless rooms, every time.</p>
+      <div class="price">Starting at $90</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section why" id="why-us">
+  <div class="section-title">
+    <h2>Why Choose Us?</h2>
+    <p>We go above and beyond so your home feels like new</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="icon">💰</div>
+      <h3>Affordable Rates</h3>
+      <p>Competitive pricing with no hidden fees — quality cleaning that fits your budget.</p>
+    </div>
+    <div class="why-item">
+      <div class="icon">⭐</div>
+      <h3>5-Star Rated</h3>
+      <p>Consistently rated 5 stars by our customers across Google and Yelp.</p>
+    </div>
+    <div class="why-item">
+      <div class="icon">📅</div>
+      <h3>Flexible Scheduling</h3>
+      <p>Morning, afternoon, or weekend — we work around your schedule.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section testimonials" id="reviews">
+  <div class="section-title">
+    <h2>What Our Customers Say</h2>
+    <p>Real reviews from real homeowners</p>
+  </div>
+  <div class="reviews">
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>"Absolutely incredible service! My apartment has never looked this clean. They got into every corner I didn't even think about. Will definitely book again."</p>
+      <div class="reviewer">— Sarah M.</div>
+    </div>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>"Used them for a move-out clean and got my full deposit back. Worth every penny. Very professional and thorough."</p>
+      <div class="reviewer">— James T.</div>
+    </div>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>"I've tried several cleaning services and this one is by far the best. Consistent, reliable, and the team is always so friendly."</p>
+      <div class="reviewer">— Linda K.</div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERRAL -->
+<section class="section referral" id="referral">
+  <div class="referral-box">
+    <div class="badge-big">$25 OFF</div>
+    <h2>Refer a Friend, Both Save!</h2>
+    <p>Know someone who needs a clean space? Refer them to Altus Cleaning and you'll both receive <strong>$25 off</strong> your next service. No limits — refer as many friends as you want!</p>
+    <div class="referral-steps">
+      <div class="referral-step">
+        <div class="num">1</div>
+        <p>Share our number or website with a friend</p>
+      </div>
+      <div class="referral-step">
+        <div class="num">2</div>
+        <p>They book their first cleaning with Altus</p>
+      </div>
+      <div class="referral-step">
+        <div class="num">3</div>
+        <p>You both get $25 off your next service</p>
+      </div>
+    </div>
+    <a href="#booking" class="btn btn-primary">Book & Start Referring</a>
+  </div>
+</section>
+
+<!-- BOOKING FORM -->
+<section class="section booking" id="booking">
+  <div class="section-title">
+    <h2>Book Your Cleaning</h2>
+    <p>Fill out the form and we'll get back to you within 24 hours</p>
+  </div>
+  <div class="form-wrap">
+    <form id="booking-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Jane" required />
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Smith" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="jane@email.com" required />
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" placeholder="(555) 000-0000" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Service Type</label>
+          <select required>
+            <option value="">Select a service...</option>
+            <option>Standard Clean</option>
+            <option>Deep Clean</option>
+            <option>Move In / Move Out</option>
+            <option>Kitchen Detail</option>
+            <option>Bathroom Refresh</option>
+            <option>Window Cleaning</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Preferred Date</label>
+          <input type="date" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group form-full">
+          <label>Address</label>
+          <input type="text" placeholder="123 Main St, City, State" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group form-full">
+          <label>Additional Notes</label>
+          <textarea placeholder="Any special instructions, pets, access details..."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Request a Quote</button>
+    </form>
+    <div id="thank-you">
+      <h3>🎉 Request Received!</h3>
+      <p>Thank you! We'll contact you within 24 hours to confirm your booking.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="logo">Altus Cleaning</span>
+  <p>📞 <a href="tel:+19515087161">(951) 508-7161</a></p>
+  <p>✉️ <a href="mailto:WTMC05@hotmail.com">WTMC05@hotmail.com</a></p>
+  <p style="margin-top:1.5rem; font-size:.8rem;">© 2026 Altus Cleaning. All rights reserved.</p>
+</footer>
+
+<script>
+  // Mobile menu
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('nav-menu').classList.toggle('open');
+  });
+  document.querySelectorAll('#nav-menu a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('nav-menu').classList.remove('open'));
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Form submit
+  document.getElementById('booking-form').addEventListener('submit', e => {
+    e.preventDefault();
+    document.getElementById('booking-form').style.display = 'none';
+    document.getElementById('thank-you').style.display = 'block';
+  });
+
+  // Set min date to today
+  const dateInput = document.querySelector('input[type="date"]');
+  if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
+</script>
+</body>
+</html>
